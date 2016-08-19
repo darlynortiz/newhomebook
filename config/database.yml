@@ -9,6 +9,8 @@ default: &default
   pool: 5
   encoding: unicode
   timeout: 5000
+  username: postgres
+  password: 2811
 
 development:
   <<: *default

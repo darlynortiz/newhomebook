@@ -16,16 +16,10 @@ Rails.application.routes.draw do
 
    #get 'users/:id' => 'users#show'
    
-   root 'home#index'
+  root 'home#index'
 
-
-
-    resources :users do
-    member do
-    put "like", to: "users#upvote"
-    put "dislike", to: "users#downvote"
-    end
-   end
+  put '/users/:id/like' => 'users#upvote', as: :like_user
+  put '/users/:id/dislike' => 'users#downvote', as: :dislike_user
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
