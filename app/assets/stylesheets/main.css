@@ -15,7 +15,7 @@ body {
 .titulo{
 font-family: 'Shadows Into Light', cursive;
 font-size: 40px;
-color: #fff
+color: #fff;
 }
 
 h1,
@@ -57,9 +57,6 @@ a {
   transition:  color 300ms, background-color 300ms;
 }
 
-a:hover, a:focus {
-  color: ;
-}
 
 hr {
   border-top: 1px solid #e5e5e5;
