@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Proyect</title>
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+ 
+
+  
+
+  <link rel="shortcut icon" href="images/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body class="homepage">
+
+
+
+  <header id="header">
+    <div class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-xs-4">
+           
+          </div>
+          <div class="col-sm-6 col-xs-8">
+            <div class="social">
+              <ul class="social-share">
+                <li><a href="https://www.facebook.com/Intercambiosdelibrosmedellin/"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+
+              </ul>
+              <div class="search">
+                <form role="form">
+                  <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                  <i class="fa fa-search"></i>
+
+                </form>
+
+               </div>
+
+             </div>
+            </div>
+          </div>
+      </div><!--/.container-->
+    </div><!--/.top-bar-->
+
+    <nav class="navbar navbar-inverse" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="home/index.html"><%= image_tag 'logo.jpg', height: 74 %></a>
+
+        </div>
+    <div class="titulo" >New home book</div>
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Inicio" , root_path%></li>
+            <li class="<%= 'active' if current_page?(books_path) %>"><%= link_to "Libros" , books_path %></li>
+            <% if user_signed_in? %>
+            
+               <li class="<%= 'active' if current_page?(usuarios_path) %>"><%= link_to "Usuarios" , usuarios_path%></li>
+            <% else %>
+              <li class="<%= 'active' if current_page?(new_user_session_path)%>"><%= link_to('Iniciar sesión', new_user_session_path)  %></li>
+             <% end %>
+           <li class="<%= 'active' if current_page?(contact_index_path) %>"><%= link_to "Contacto" , contact_index_path%></li>
+
+
+<li class="<%= 'active' if current_page?(contact_index_path) %>">
+           <% if user_signed_in? %>
+                <div>
+                <%= link_to  profile_path(id: current_user.id )do %>
+                  <%=  image_tag current_user.profile_picture, class: "img-responsive img-circle", width:60 , height:30   %>
+                <% end %>
+                </div>
+                <div><%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %></div>
+                <% end %>
+</li>
+
+
+          </ul>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+    
+    </header><!--/header-->
+
+
+
+<div class="center wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+  <p class="notice" class="lead"><%= notice %></p>
+  <p class="alert" class="lead"><%= alert %></p> 
+</div>
+
+	</header>
+
+
+
+<%= yield %>
+
+
+<div class="row team-bar">
+          <div class="first-one-arrow hidden-xs">
+            <hr>
+          </div>
+          <div class="first-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="second-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+          <div class="third-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="fourth-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+        </div> <!--skill_border-->       
+
+
+
+<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">New home book</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Inicio" , root_path%></li>
+                          <li class="<%= 'active' if current_page?(books_path) %>"><%= link_to "Libros" , books_path%></li>
+                           <li class="<%= 'active' if current_page?(usuarios_path) %>"><%= link_to "Usuarios" ,usuarios_path%></li> 
+                           <li class="<%= 'active' if current_page?(contact_index_path) %>"><%= link_to "Contacto" , contact_index_path%></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+</body>
+</html>

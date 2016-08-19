@@ -1,0 +1,65 @@
+<section id="contact-page">
+  <div class="container">
+    <div class="center">        
+      <h2>Regístrate</h2>
+      <p class="lead">Ingresa la siguiente informacion.</p>
+    </div>
+    <div class="row contact-wrap"> 
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { class: "contact-form"}) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="col-sm-5 col-sm-offset-1">  
+          <div class="form-group">
+            <%= f.label :name, "Nombres" %><br />
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+          </div>
+          
+           <div class="form-group">
+            <%= f.label :last_name, "Apellido" %><br />
+            <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :profile_picture,"Foto de perfil" %><br />
+            <%= f.file_field :profile_picture, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :address, "Dirección" %><br />
+            <%= f.text_field :address, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-sm-5">      
+          <div class="form-group">
+            <%= f.label :email, "Correo" %><br />
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'Contraseña' %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> Caracteres minimos)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Confirmar contraseña" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.submit "Regístrate", class: "btn btn-primary btn-lg" %>
+          </div>
+          <%= render "devise/shared/links" %>
+
+        </div>  
+      <% end %>
+    </div>
+  </div>
+</div> 
+
+                        <div class="feature-wrap">
+                            <i class="fa fa-cloud-download"></i>
+                        </div>
+                   

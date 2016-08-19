@@ -1,0 +1,57 @@
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Titulo %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Autor %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :Descripcion %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <% category = { ' ' => ' ' , 
+      'Fantasia y ciencia ficción ' => 'ficcion' , 
+      'Romantica' => 'romantica' , 
+      'Terror, Suspeso ' => 'terror' ,
+      'Historica y aventuras' => 'historica' ,
+      'Infantil' => 'infantil'
+   } %>
+    <%= f.label :Categoria %><br>
+    <%= f.select :category , category %>
+  </div>
+  <div class="field">
+    <%= f.label :Imagen %><br />
+    <%= f.file_field :picture, autofocus: true %>
+  </div>
+  <div class="field">
+  <% status = { ' ' => ' ' , 
+      'Disponible ' => 'disponible' , 
+      'En proceso ' => 'tramite' , 
+      'Ya fue intercambiado' => 'intercambiado' , 
+     } %>
+    <%= f.label :Estado %><br>
+    <%= f.select :status , status %>
+  </div>
+  <div class="field">
+    <%= f.label :Ubicacion %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

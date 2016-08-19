@@ -1,0 +1,1 @@
+json.array! @comment_users, partial: 'comment_users/comment_user', as: :comment_user

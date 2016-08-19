@@ -1,0 +1,52 @@
+<section id="about-us">
+    <div class="container">
+		<div class="center wow fadeInDown">
+			<h2>Hola!</h2>
+			<p class="lead">Busca un nuevo hogar para tu libro y adopta uno para ti.</p>
+		</div>
+		
+		<!-- about us slider -->
+		<div id="about-slider">
+			<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+			  	<ol class="carousel-indicators visible-xs">
+				    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+				    <li data-target="#carousel-slider" data-slide-to="1"></li>
+				    <li data-target="#carousel-slider" data-slide-to="2"></li>
+			  	</ol>
+
+				<div class="carousel-inner">
+					
+					<div class="item active slider-home">
+						<%= image_tag 'books/sample1.jpg', class: 'img-responsive', height: 600  %>
+			   		</div>
+			   		<div class="item slider-home">
+						<%= image_tag 'books/sample2.jpg', class: 'img-responsive', height: 600 %>
+			   		</div>
+			   		<div class="item slider-home">
+						<%= image_tag 'books/sample3.jpg', class: 'img-responsive', height: 600 %>
+			   		</div>
+			   		
+				</div>
+				
+				<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+					<i class="fa fa-angle-left"></i> 
+				</a>
+				
+				<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
+					<i class="fa fa-angle-right"></i> 
+				</a>
+			</div> <!--/#carousel-slider-->
+		</div><!--/#about-slider-->
+	</div><!--/#container-->
+</section><!--/Section about us-->
+
+				
+					
+
+				      
+
+
+    <script type="text/javascript">
+        $('.carousel').carousel()
+    </script>

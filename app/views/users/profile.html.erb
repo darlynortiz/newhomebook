@@ -1,0 +1,96 @@
+
+
+    <section id="blog" class="container">
+        <div class="center">
+            <h2 class="center"><%= @user.name %></h2>
+            
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                 <div class="col-md-8">
+                    <div class="blog-item">
+
+
+
+       <div class="col-xs-12 col-sm-10 blog-content">                               
+                                <%= image_tag @user.profile_picture,  :class => "img-responsive img-blog" %>
+                  
+                                  <p>
+                                    <strong>Nombres:</strong>
+                                    <%= @user.name %>
+                                  </p>
+
+                                  <p>
+                                    <strong>Apellidos:</strong>
+                                    <%= @user.last_name%>
+                                  </p>
+
+                                  <p>
+                                    <strong>Direccion:</strong>
+                                    <%= @user.address %>
+                                  </p>
+
+                                  <p>
+                                    <strong>Correo electronico:</strong>
+                                    <%= @user.email %>
+                                  </p>
+
+
+                             <%= link_to 'Editar', edit_user_registration_path(@user) %> 
+                       
+                       <%=  link_to "upvote", like_user_path(@user), method: :put %>
+                       <%=  link_to "downvote", dislike_user_path(@user), method: :put %>
+                       <%=  @user.score %>
+
+                                
+      </div>
+  </div><!--/.blog-item-->
+</div><!--/.col-md-8-->
+
+                <aside class="col-md-4">
+                   
+            <div class="widget categories">
+                        <h3>Comentarios</h3>
+                         <% @comment_users.each do |comment_user| %>
+                         
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+                                    
+                                     <%= image_tag comment_user.user_review.profile_picture, width:60 , height:60  %> 
+                                   
+                                    <p><%= comment_user.message %> </p>
+                                    <div class="entry-meta small muted">
+                                        <span>Creado por: <a href="#"><%= comment_user.user_review.name %></a></span>
+                                         <%= link_to 'Destroy', comment_user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    </div>
+                                </div>
+                                
+                
+                            </div>
+                        </div>
+                      <% end %>
+                    </div> 
+                       
+                          
+                     
+                    <% unless current_user == @user %>            
+                     <%= render partial: 'comment_users/form'%>  
+
+                     <p id="notice"><%= notice %></p>
+                     <% end  %>
+
+
+
+                     
+           </div><!--/.recent comments-->
+
+           </div><!--/.recent comments-->            
+        
+  </aside>
+    </section><!--/#blog-->
+
+
+
+

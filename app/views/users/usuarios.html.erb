@@ -1,0 +1,31 @@
+
+
+ <section id="services" class="service-item">
+<div class="container">
+<div class="center wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+<h2>Lista de Usuarios</h2>
+<p class="lead">Si quieres comunicarte con alguno de nuestros usuarios, puedes dejar un comentario en su perfil</p>
+</div>
+<div class="row">
+ <% @user.each do |user| %>  
+<div class="col-sm-6 col-md-4">
+<div class="media services-wrap wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+<div class="pull-left">
+  <%= link_to  profile_path(id: user.id )do %>
+<%= image_tag user.profile_picture, :class => "img-responsive" ,  width:81 , height:81   %>
+</div>
+<div class="media-body">
+<h3 class="media-heading">Nombres: <%= user.name %></h3>
+<p>
+    <strong>Correo electronico:</strong>
+    <%= user.email %>
+</p>
+</div>
+</div>
+</div>
+ <% end %> 
+ <% end %> 
+</div> 
+</div> 
+</section>
+

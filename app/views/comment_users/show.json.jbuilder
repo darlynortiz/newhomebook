@@ -1,0 +1,1 @@
+json.partial! "comment_users/comment_user", comment_user: @comment_user

@@ -1,0 +1,140 @@
+
+
+    <section id="blog" class="container">
+        <div class="center">
+            <h2 class="center"><%= @book.title %></h2>
+            
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                 <div class="col-md-8">
+                    <div class="blog-item">
+                       <div class="col-xs-12 col-sm-10 blog-content">                            
+                          <%= image_tag @book.picture.portfolio, class: "img-blog"  %>                              
+                                <p>
+                                  <strong>Autor:</strong>
+                                  <%= @book.author %>
+                                </p>                           
+
+                                <p>
+                                  <strong>Descripcion:</strong>
+                                  <%= @book.description %>
+                                </p>
+
+                                <p>
+                                  <strong>Categoria:</strong>
+                                  <%= @book.category %>
+                                </p>
+
+
+                                <p>
+                                  <strong>Estado:</strong>
+                                  <%= @book.status %>
+                                </p>
+
+                                <p>
+                                  <strong>Ubicacion:</strong>
+                                  <%= @book.address %>
+                                </p>
+                                    <p>Creado por: <%= @book.user.name %></p>
+                                <%= image_tag @book.user.profile_picture, width:60 , height:60  %> 
+                                 <% if user_signed_in? %>
+                                <% unless can? :manage, @book %>
+                                <%= link_to 'Editar', edit_book_path(@book) %> 
+                              
+                                  <div class="media services-wrap wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                                                               <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                      Quiero el libro
+                                    </button>
+                                  </div>    
+
+                        
+         </div>
+       </div>
+
+
+
+<aside class="col-md-4">      
+          <div class="widget categories">
+                        <h3>Comentarios</h3>
+                         <% @book.comment_books.each do |comment_book| %> 
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+                                     <%= image_tag comment_book.user.profile_picture, width:60 , height:60  %> 
+                                    <p><%= comment_book.message %> </p>
+                                      <div class="entry-meta small muted">
+                                        <span>Creado por: <a href="#"><%= comment_book.user.name %></a></span>
+                                         <%= link_to 'Destroy', comment_book, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <% end %>
+                          
+                        <%= render partial: 'comment_books/form'%>  
+
+                     <p id="notice"><%= notice %></p>
+
+          </div><!--/.col-md-4-->
+ </aside>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Comentario</h4>
+      </div>
+    <div class="modal-body">
+
+       <%= form_for(@comment_book) do |f| %>
+        <% if @comment_book.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@comment_book.errors.count, "error") %> prohibited this comment_book from being saved:</h2>
+            <ul>
+              <% @comment_book.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+         <% end %>
+
+          <div class="field">
+             <%= f.label :message %><br>
+             <%= f.text_area :message %>
+           </div>
+
+            <%= f.hidden_field :book_id, :value => @book.id %>
+
+           <div class="actions">
+             <%= f.submit "Guardar", class:"btn btn-primary"%>
+            </div>
+            <% end %>
+
+      </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+     
+
+        <% end %>
+        <% end %>              
+
+      
+  
+
+       
+    </div>
+  </div>                                       
+</section>
+
+
+

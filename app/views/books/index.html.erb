@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+        
+<section id="portfolio">
+    <div class="container">
+        <div class="center">
+           <h2>Libros</h2>
+           <p class="lead">Encuentra aquí los libros disponibles</p>
+        </div>
+    
+
+        <ul class="portfolio-filter text-center">
+            <li><a class="btn btn-default active" href="#" data-filter="*">Todos</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".ficcion">Ciencia ficción</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".romantica">Romantica</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".terror">Terror y suspenso</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".infantil">Infantil</a></li>
+            
+
+            
+            <div class="form-group">
+            <% if can? :create, Book%>
+            <%= link_to 'NUEVO LIBRO', new_book_path, class: "btn btn-primary btn-lg"   %>
+            <% end %>
+           
+          </div>
+        </ul><!--/#portfolio-filter-->
+        
+      
+        <div class="row">
+            <div class="portfolio-items">
+                <% @books.each do |book| %>
+                    <div class="portfolio-item <%= book.category %> col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+                            <%= image_tag book.picture.portfolio, class: "img-responsive"%>
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a><%= book.title%></a></h3>
+                                    <p><%= book.description %></p>
+                                    <a class="preview" href="<%= book.picture %>" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>|
+                                    <%= link_to "Detalles",book, class: "preview" %>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+               <% end %>
+            </div> 
+        </div>
+    </div>
+
+    
+<%= form_tag books_path, :method => :get do %>
+ 
+<% end %>
+</section><!--/#portfolio-item-->
+    
+
+
+

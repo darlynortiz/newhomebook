@@ -1,0 +1,9 @@
+.slider-home  {
+  max-height: 500px;
+
+}
+.slider-home  img{
+display: block;
+margin: 0 auto;
+}
+
