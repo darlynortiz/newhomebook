@@ -14,20 +14,25 @@
           </div>
           
            <div class="form-group">
-            <%= f.label :last_name, "Apellido" %><br />
+            <%= f.label :last_name, "Apellidos" %><br />
             <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
           </div>
 
-          <div class="form-group">
-            <%= f.label :profile_picture,"Foto de perfil" %><br />
-            <%= f.file_field :profile_picture, class: "form-control" %>
-          </div>
-
+          
+           <div class="form-group"">
+           <%= f.label :profile_picture,"Foto de perfil" %><br />                 
+           <%= f.file_field :profile_picture %>
+           
+           </div>
+                   
+           
           <div class="form-group">
             <%= f.label :address, "Dirección" %><br />
             <%= f.text_field :address, autofocus: true, class: "form-control" %>
           </div>
+
         </div>
+        
         <div class="col-sm-5">      
           <div class="form-group">
             <%= f.label :email, "Correo" %><br />
@@ -57,9 +62,5 @@
       <% end %>
     </div>
   </div>
-</div> 
 
-                        <div class="feature-wrap">
-                            <i class="fa fa-cloud-download"></i>
-                        </div>
-                   
+</section> 

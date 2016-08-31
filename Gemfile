@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 gem 'acts_as_votable'
 
 gem 'omniauth-facebook'
@@ -49,6 +51,8 @@ gem 'carrierwave'
 gem 'cancancan', '~> 1.10'
 
 gem 'rmagick'
+
+
 
 gem 'rails_12factor', group: :production
 

@@ -1,57 +1,73 @@
-<%= form_for(@book) do |f| %>
-  <% if @book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<section id="contact-page">
+  <div class="container contact-form">
+    <div class="center">   
+      <h2>Llena los siguientes campos</h2>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :Titulo %><br>
-    <%= f.text_field :title %>
+
+
+      <div class="row contact-wrap"> 
+        <%= form_for(@book) do |f| %>
+         <% if @book.errors.any? %>
+          <div id="error_explanation">
+           <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+           <ul>
+            <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+     </div>
+  <% end %>
+   <div class="col-sm-5 col-sm-offset-1">  
+      <div class="form-group">
+      <%= f.label :Titulo, "Titulo" %><br>
+      <%= f.text_field :title ,class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Autor %><br>
-    <%= f.text_field :author %>
+    <%= f.text_field :author ,class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Descripcion %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description ,class: "form-control"%>
   </div>
-  <div class="field">
-    <% category = { ' ' => ' ' , 
-      'Fantasia y ciencia ficción ' => 'ficcion' , 
+  <div class="form-group">
+    <% category = { 'seleccione una categoria' => ' ',
+      'Fantasia y ciencia ficción' => 'ficcion' , 
       'Romantica' => 'romantica' , 
       'Terror, Suspeso ' => 'terror' ,
       'Historica y aventuras' => 'historica' ,
       'Infantil' => 'infantil'
    } %>
     <%= f.label :Categoria %><br>
-    <%= f.select :category , category %>
+    <%= f.select :category , category  ,class: "form-control"%>
   </div>
-  <div class="field">
+   </div>
+  <div class="col-sm-5">  
+  <div class="form-group">
     <%= f.label :Imagen %><br />
-    <%= f.file_field :picture, autofocus: true %>
+    <%= f.file_field :picture, autofocus: true  %>
   </div>
-  <div class="field">
-  <% status = { ' ' => ' ' , 
+  <div class="form-group">
+  <% status = { 'seleccione un estado' => ' ',
       'Disponible ' => 'disponible' , 
       'En proceso ' => 'tramite' , 
       'Ya fue intercambiado' => 'intercambiado' , 
      } %>
     <%= f.label :Estado %><br>
-    <%= f.select :status , status %>
+    <%= f.select :status , status ,class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Ubicacion %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address ,class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Crear" ,class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
+ </div>
+   </div>
+
+</div> 
+</section> 

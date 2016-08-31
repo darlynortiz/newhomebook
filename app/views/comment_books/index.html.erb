@@ -19,8 +19,8 @@
         <td><%= comment_book.user_id %></td>
         <td><%= comment_book.book_id %></td>
         <td><%= link_to 'Show', comment_book %></td>
-        <td><%= link_to 'Edit', edit_comment_book_path(comment_book) %></td>
-        <td><%= link_to 'Destroy', comment_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_comment_book_path(comment_book) %></td>
+        <td><%= link_to 'Eliminar', comment_book, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Comment book', new_comment_book_path %>
+<%= link_to 'Nuevo comentario para libro', new_comment_book_path %>

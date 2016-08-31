@@ -23,6 +23,7 @@ h2,
 h3,
 h4,
 h5,
+
 h6 {
   font-weight: 600; 
   font-family: 'Open Sans', sans-serif;
@@ -118,12 +119,12 @@ a:focus {
 }
 
 body > section {
-  padding: 70px 0;
+  padding: 10px ;
 }
 
 .center {
   text-align: center;
-  padding-bottom: 55px;
+  padding-bottom: 5px;
 }
 
 .scaleIn {
@@ -228,7 +229,7 @@ ul.social-share li a {
 }
 
 ul.social-share li a:hover {
-  background: #c52d2f;
+  background: #;
   color: #fff;
 }
 
@@ -570,7 +571,7 @@ input.search-form:hover {
   line-height: 110px;
   text-align:center;
   background: #ffffff;
-  color: #c52d2f;
+  color: #0FD7FF;
   border: 3px solid #ffffff;
   box-shadow: inset 0 0 0 5px #f2f2f2;
   -webkit-box-shadow: inset 0 0 0 5px #f2f2f2;
@@ -583,11 +584,11 @@ input.search-form:hover {
 }
 
 .feature-wrap i:hover {
-  background: #c52d2f;
+  background: #0FD7FF;;
   color: #fff;
-  box-shadow: inset 0 0 0 5px #c52d2f;
-  -webkit-box-shadow: inset 0 0 0 5px #c52d2f;
-  border: 3px solid #c52d2f;
+  box-shadow: inset 0 0 0 5px #0FD7FF;;
+  -webkit-box-shadow: inset 0 0 0 5px #0FD7FF;;
+  border: 3px solid #0FD7FF;;
 }
 
 #recent-works .col-xs-12.col-sm-4.col-md-3{
@@ -665,20 +666,22 @@ input.search-form:hover {
 }
 
 #services {
-  background: #0FD7FF;
+  background: #fff;
   background-size: cover;
 }
 
 #services .lead,
-#services h2{
-  color: #fff;
+#services h2 {
+  color: #4e4e4e;
 }
+
 
 .services-wrap {
   padding: 40px 30px;
-  background: #fff;
+  background: #0FB7FF;
   border-radius: 4px;
   margin: 0 0 40px;
+  color: #fff;
 }
 
 .services-wrap h3 {

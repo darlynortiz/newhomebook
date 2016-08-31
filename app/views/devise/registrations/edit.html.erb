@@ -1,63 +1,74 @@
+<section id="contact-page">
+  <div class="container contact-form">
+    <div class="center">    
 <h2>Editar</h2>
-
+    </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+<div class="row contact-wrap"> 
+ <div class="col-sm-5 col-sm-offset-1">
+  <div class="form-group">
     <%= f.label :Foto_de_perfil %><br />
     <%= f.file_field :profile_picture, autofocus: true %>
   </div>
 
-   <div class="field">
+   <div class="form-group">
     <%= f.label :Nombres %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, autofocus: true, class: "form-control"  %>
   </div>
   
-   <div class="field">
+   <div class="form-group">
     <%= f.label :Apellidos %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true, class: "form-control"  %>
   </div>
 
-   <div class="field">
+   <div class="form-group">
     <%= f.label :Direccion %><br />
-    <%= f.text_field :address, autofocus: true %>
+    <%= f.text_field :address, autofocus: true, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Correo_electronico %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: "form-control"  %>
   </div>
-
+</div>
+ <div class="col-sm-5">      
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Contraseña %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> Caracteres minimos</em>
+      <%= @minimum_password_length %> Caracteres minimos</>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Confirmar_la_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :Contraseña_actual %><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Actualizar" %>
+    <%= f.submit "Actualizar" ,class: "btn btn-primary btn-lg"%>
   </div>
 <% end %>
 
-<h3>Cancelar mi cuenta</h3>
+ <div class="actions">
+    <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete, class: "btn btn-primary btn-lg" %>
 
-<p> <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete %></p>
-
+  </div>
+ 
 <%= link_to "Regresar", :back %>
+</div>
+</div>
+</div> 
+</section> 
